@@ -1,6 +1,8 @@
 # Jarvis Contabilidad y Almacén
 
-Un asistente de trabajo para contabilidad y manejo de almacén, construido sobre
+*contabilidad, almacén y preescolar*
+
+Un asistente de trabajo para contabilidad, manejo de almacén y el preescolar del negocio, construido sobre
 [Claude Code](https://claude.ai/code). Lee tus archivos (Excel, CSV, facturas XML),
 concilia, arma reportes y explica conceptos. Tú decides; él prepara.
 
@@ -39,6 +41,10 @@ Guía paso a paso con problemas comunes: [`docs/INSTALACION-WINDOWS.md`](docs/IN
 | `/inventario` | Existencias, rotación, punto de reorden, productos sin movimiento |
 | `/reporte` | Reporte mensual (ventas, compras, gastos, inventario) |
 | `/excel` | Crear, limpiar o arreglar una hoja de cálculo |
+| `/planeacion` | Planeación didáctica semanal o por proyecto para un grupo de preescolar |
+| `/programa-analitico` | Construir o revisar el programa analítico del plantel (lo que escribe el colectivo, ordenado) |
+| `/evaluacion` | Pasar tus notas de observación a registros, listas de cotejo, rúbricas y reportes para familias |
+| `/control-escolar` | Listas de grupo, inscripciones, expedientes, calendario y colegiaturas |
 | `/aprender` | Guardar una corrección o preferencia para que no se repita el error |
 | `/guardar` | Guardar tus notas y scripts en el repositorio (nunca `datos/` ni `reportes/`) |
 
@@ -48,9 +54,20 @@ Guía paso a paso con problemas comunes: [`docs/INSTALACION-WINDOWS.md`](docs/IN
 datos/      TUS archivos reales (Excel, CSV, XML). Privados: nunca se suben a internet.
 ejemplos/   Archivos ficticios para probar los comandos.
 reportes/   Lo que Claude genera (Excel y resúmenes). Solo en tu computadora: no se sube a git, como datos/.
+programas/   Preescolar: planeaciones, programa analítico y plantillas (sin nombres de niños). `programas/alumnos/` es privada: no se sube.
 notas/      Aprendizajes, decisiones, pendientes.
 scripts/    Herramientas (Python) que usan los comandos.
 ```
+
+## Preescolar
+
+Para el preescolar (3 a 5 años) el asistente sigue la Nueva Escuela Mexicana, Plan de Estudio 2022 de la SEP:
+4 campos formativos, 7 ejes articuladores y evaluación formativa sin calificación numérica.
+
+- **No inventa** contenidos, PDA ni normativa: si no los tienes a la mano, deja un espacio marcado para completar con el documento SEP vigente.
+- **Cuida a los niños:** nombres, fotos, CURP y datos de salud solo viven en `programas/alumnos/` y `datos/escuela/`, que nunca se suben.
+- Las planeaciones y plantillas **sin nombres** sí se guardan en el repositorio.
+- Empieza con `/planeacion`; los formatos vacíos están en `programas/plantillas/`. Detalle en [`programas/README.md`](programas/README.md).
 
 ## Cómo crece
 

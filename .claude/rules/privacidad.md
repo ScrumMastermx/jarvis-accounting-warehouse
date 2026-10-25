@@ -10,3 +10,6 @@
   genéricos (`XAXX010101000`, `XEXX010101000`). Al crear un ejemplo nuevo, anonimiza siempre.
 - Si José Manuel pide compartir un reporte, genera una versión en `reportes/` (se queda en tu computadora; compártela tú por el canal que elijas) y recuérdale revisar que no
   lleve datos sensibles de más.
+- **Menores de edad (preescolar).** Nombres, fotos, CURP, datos de salud y datos de las familias de los alumnos viven solo en
+  `programas/alumnos/` y `datos/escuela/`, ambas ignoradas por git. Nunca se pegan en un chat, correo o servicio externo.
+  Las plantillas y planeaciones **sin nombres de alumnos** (`programas/plantillas/`, `programas/planeaciones/`) sí pueden subirse.

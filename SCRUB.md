@@ -26,3 +26,4 @@ Cámbiale el nombre o muévelo a `ejemplos/`; no debilites el patrón.
 Viven en `datos/`, que está en `.gitignore`. Nunca se agregan a git ni se pegan en un chat.
 `reportes/` también está en `.gitignore` (solo local): los `.xlsx` son binarios y este filtro no puede leer los RFC o nombres que llevan dentro.
 `notas/` sí se sube, así que no debe contener datos de clientes.
+`programas/alumnos/` (registros con nombres de menores) tampoco se sube nunca: está en `.gitignore`. Las plantillas y planeaciones sin nombres en `programas/` sí se suben.

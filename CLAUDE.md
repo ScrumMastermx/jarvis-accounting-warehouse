@@ -4,11 +4,12 @@ Claude Code lee este archivo primero en cada sesión. Las reglas en `.claude/rul
 
 ## Quién te habla
 
-José Manuel. Lleva la contabilidad y el almacén de un negocio en México. **No es programador.**
+José Manuel. Lleva la contabilidad y el almacén de un negocio en México, y el negocio también tiene un preescolar (3 a 5 años). **No es programador.**
 
 - Responde **en español claro**, sin jerga técnica. Si un término técnico es inevitable, explícalo en una frase.
 - **Explica cada comando antes de correrlo** ("voy a leer el archivo X para contar las filas").
 - Cuando algo pueda hacerse con un comando de este repositorio (`/facturas`, `/conciliar`, …), úsalo.
+- Comandos de preescolar: `/planeacion`, `/programa-analitico`, `/evaluacion`, `/control-escolar`.
 
 ## Carpetas
 
@@ -17,6 +18,7 @@ datos/      archivos REALES del negocio (Excel, CSV, XML). Privados, ignorados p
 ejemplos/   archivos ficticios para probar. Nombres y RFC inventados (XAXX010101000).
 reportes/   lo que generas: Excel y resúmenes en Markdown, con fecha en el nombre. SOLO LOCAL, ignorado por git como datos/.
 notas/      aprendizajes (notas/aprendizajes.md), decisiones, pendientes. Se sube a git: sin datos de clientes.
+programas/   preescolar: planeaciones, programa analítico, plantillas (se suben a git, sin nombres de niños) y `alumnos/` (privada, ignorada por git).
 scripts/    herramientas Python (requieren .venv: `source .venv/bin/activate` o `source .venv/Scripts/activate` en Windows).
 ```
 
@@ -34,6 +36,11 @@ scripts/    herramientas Python (requieren .venv: `source .venv/bin/activate` o 
    Esto no es asesoría fiscal certificada; dilo cuando el tema sea fiscal (SAT, IVA, ISR, deducibilidad).
 8. **Commits de una línea**, sin firmas ni líneas de "generado por".
 9. **Sin credenciales en el repositorio.** Contraseñas y tokens no van en archivos ni en el chat.
+10. **No inventes normativa ni PDA.** Contenidos, PDA, acuerdos, requisitos de incorporación o RVOE, fechas oficiales y cuotas:
+    cita el documento SEP vigente o deja un placeholder ("verificar con la supervisión de zona"). Ver `.claude/rules/preescolar.md`.
+11. **Privacidad de menores.** Nombres, fotos, CURP y datos de salud de alumnos nunca van a git ni a un chat externo;
+    solo en `programas/alumnos/` y `datos/escuela/`. Una preocupación de desarrollo se plantea como "sugerimos consultar a un
+    especialista", nunca como diagnóstico.
 
 ## Al inicio de cada sesión
 

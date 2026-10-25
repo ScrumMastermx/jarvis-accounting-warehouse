@@ -6,6 +6,7 @@
 - `bash scripts/setup.sh` termina con "Listo" en su Windows.
 - `/facturas ejemplos/cfdi` genera `reportes/facturas-*.xlsx` con 2 facturas.
 - `/guardar` sube un commit suyo al repositorio.
+- Preescolar: primera planeación generada con el PDA real del programa analítico.
 
 ## Fase 1 — Su primer caso real
 **Meta:** un comando resuelve una tarea que hoy hace a mano cada semana o cada mes.

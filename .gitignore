@@ -13,3 +13,7 @@ __pycache__/
 *.xlsx~
 ~$*.xlsx
 .DS_Store
+
+# Preescolar: registros con nombres de menores. Solo local. (datos/escuela/ ya queda bajo datos/*)
+programas/alumnos/*
+!programas/alumnos/.gitkeep
