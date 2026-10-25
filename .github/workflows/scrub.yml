@@ -1,0 +1,21 @@
+name: scrub
+on:
+  push:
+  pull_request:
+jobs:
+  scrub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Filtro de contenido
+        run: bash scripts/scrub.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scripts compilan
+        run: python -m py_compile scripts/*.py
+      - name: Prueba con ejemplos
+        run: |
+          pip install -q -r requirements.txt
+          python scripts/cfdi_a_tabla.py ejemplos/cfdi /tmp/facturas.xlsx
+          python scripts/conciliar.py ejemplos/banco.csv ejemplos/libro.csv /tmp/conciliacion.xlsx

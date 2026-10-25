@@ -1,0 +1,11 @@
+# Datos reales del negocio: NUNCA se suben. Solo se conserva datos/README.md.
+datos/*
+!datos/README.md
+!datos/.gitkeep
+.env
+*.env
+__pycache__/
+.venv/
+*.xlsx~
+~$*.xlsx
+.DS_Store
