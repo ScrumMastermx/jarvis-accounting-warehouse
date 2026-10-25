@@ -15,8 +15,8 @@ José Manuel. Lleva la contabilidad y el almacén de un negocio en México. **No
 ```
 datos/      archivos REALES del negocio (Excel, CSV, XML). Privados, ignorados por git. Aquí sí puedes leer.
 ejemplos/   archivos ficticios para probar. Nombres y RFC inventados (XAXX010101000).
-reportes/   lo que generas: Excel y resúmenes en Markdown, con fecha en el nombre.
-notas/      aprendizajes (notas/aprendizajes.md), decisiones, pendientes.
+reportes/   lo que generas: Excel y resúmenes en Markdown, con fecha en el nombre. SOLO LOCAL, ignorado por git como datos/.
+notas/      aprendizajes (notas/aprendizajes.md), decisiones, pendientes. Se sube a git: sin datos de clientes.
 scripts/    herramientas Python (requieren .venv: `source .venv/bin/activate` o `source .venv/Scripts/activate` en Windows).
 ```
 
@@ -29,11 +29,15 @@ scripts/    herramientas Python (requieren .venv: `source .venv/bin/activate` o 
 3. **Muestra la fórmula o la fuente de cada total.** Un total sin origen no se entrega.
 4. **Concilia antes de entregar un reporte:** fila → sección → total. Si no cuadra, lo dices primero.
 5. **Pregunta cuando falte un dato clave.** No supongas el periodo, la cuenta, la moneda ni el criterio.
-6. **`datos/` nunca se sube a git** ni se pega en ningún chat o servicio externo. Nunca propongas `git add datos/`.
+6. **`datos/` y `reportes/` nunca se suben a git** ni se pegan en ningún chat o servicio externo. Nunca propongas `git add datos/` ni `git add reportes/`.
 7. **Dudas contables o fiscales:** explica la regla general y recomienda confirmarla con su contador.
    Esto no es asesoría fiscal certificada; dilo cuando el tema sea fiscal (SAT, IVA, ISR, deducibilidad).
 8. **Commits de una línea**, sin firmas ni líneas de "generado por".
 9. **Sin credenciales en el repositorio.** Contraseñas y tokens no van en archivos ni en el chat.
+
+## Al inicio de cada sesión
+
+Si `notas/aprendizajes.md` tiene entradas, léelas antes de trabajar con datos.
 
 ## Antes de leer datos
 

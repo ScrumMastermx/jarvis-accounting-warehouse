@@ -20,4 +20,4 @@ description: |
 4. **Revisar duplicados**: si ya existe una nota parecida, actualízala en vez de repetirla.
 5. Confirmar en una línea qué quedó guardado.
 
-Al inicio de cada sesión, si `notas/aprendizajes.md` tiene entradas, léelas antes de trabajar con datos.
+(`CLAUDE.md` ya indica leer `notas/aprendizajes.md` al inicio de cada sesión.)

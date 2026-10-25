@@ -10,16 +10,19 @@ Clic derecho en el botón de inicio → "Terminal (Administrador)" o "Windows Po
 winget install Git.Git Python.Python.3.12
 ```
 
-Cuando termine, cierra esa ventana.
+Cuando termine, **cierra esa ventana y cierra también cualquier Git Bash abierto**: Windows solo actualiza el PATH
+al abrir una ventana nueva. Después de cualquier `winget install`, cierra y vuelve a abrir Git Bash antes de continuar.
 
 ## 2. Claude Code
 
-Entra a https://claude.ai/code, instala Claude Code e inicia sesión con tu cuenta.
-Si prefieres la versión de línea de comandos, en PowerShell (normal):
+Es obligatorio instalar la versión de línea de comandos (`claude`). En PowerShell (normal):
 
 ```
 irm https://claude.ai/install.ps1 | iex
 ```
+
+Cierra y vuelve a abrir Git Bash al terminar. Para iniciar sesión necesitas un plan de Claude que incluya Claude Code
+(por ejemplo Pro o Max). La sesión se inicia la primera vez que escribas `claude` (paso 4): se abre el navegador para confirmar tu cuenta.
 
 ## 3. Clonar el repositorio (Git Bash)
 
@@ -37,7 +40,7 @@ Debe terminar con "== 4/4 Listo".
 
 ## 4. Primera sesión
 
-En la misma ventana:
+En Git Bash, dentro de la carpeta del repositorio (primera vez: te pedirá iniciar sesión en el navegador):
 
 ```
 claude
@@ -61,7 +64,8 @@ Nunca se suben a internet.
 
 - **`python3` abre la Microsoft Store.** Configuración → Aplicaciones → Configuración avanzada de aplicaciones →
   Alias de ejecución de aplicaciones → apaga los de "python" y "python3". Cierra y abre Git Bash.
-- **`claude: command not found`** después de instalar: cierra y vuelve a abrir Git Bash (el PATH se actualiza al abrir).
+- **`claude: command not found`** o **`python: command not found`** después de instalar: cierra y vuelve a abrir Git Bash (el PATH se actualiza al abrir).
+  Para revisar el PATH, abre PowerShell y escribe `where python` (o `where claude`): debe mostrar una ruta.
 - **Archivos con `^M` o saltos de línea raros (CRLF).** `setup.sh` fija `core.autocrlf false` en este repositorio.
   Si editas con el Bloc de notas, usa mejor Notepad++ o VS Code.
 - **Las variables o alias de `~/.bashrc` no cargan.** Git Bash abre sesiones de "login" que leen `~/.bash_profile`.

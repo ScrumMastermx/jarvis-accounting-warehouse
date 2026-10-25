@@ -20,7 +20,7 @@ description: |
 4. **Entregar**:
    - `reportes/reporte-AAAA-MM.md`: una página. Primera línea = el dato más importante. Tabla por sección con
      total, variación vs mes anterior y origen. Lista "Falta el dato" al final.
-   - `reportes/reporte-AAAA-MM.xlsx`: una hoja por sección + Resumen + Fuente (`rules/excel.md`).
+   - `reportes/reporte-AAAA-MM.xlsx`: una hoja por sección + Resumen + Fuente (`.claude/rules/excel.md`).
 5. **Resumen en chat**: 5 líneas máximo.
 
 ## Nunca

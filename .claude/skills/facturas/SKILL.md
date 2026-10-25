@@ -2,8 +2,8 @@
 name: facturas
 description: |
   Convertir una carpeta de facturas electrónicas XML (CFDI 4.0, SAT México) en una tabla de Excel: UUID, fecha,
-  emisor, receptor, subtotal, IVA, total, forma y método de pago, uso CFDI; totales por mes y por emisor;
-  detecta duplicados y XML mal formados. Usa scripts/cfdi_a_tabla.py.
+  emisor, receptor, subtotal, IVA, otros traslados, retenciones, total, forma y método de pago, uso CFDI; Ingresos, Egresos y Neto
+  por mes y por emisor; detecta duplicados, CFDI sin UUID, importes que no cuadran y XML mal formados. Usa scripts/cfdi_a_tabla.py.
   TRIGGERS: "/facturas", "CFDI", "XML del SAT", "facturas de octubre", "cuánto facturó", "cuánto nos facturaron",
   "pasar las facturas a Excel".
 ---
@@ -17,15 +17,20 @@ description: |
 2. **Correr** (con `.venv` activo):
    `python scripts/cfdi_a_tabla.py <carpeta> reportes/facturas-AAAA-MM-DD.xlsx`
    El script lee cada `.xml`, ignora los que no son CFDI 4.0 válidos y los reporta al final sin detenerse.
-3. **Revisar** la salida: hoja `Facturas` (una fila por XML), hoja `Resumen` (por mes y por emisor, con fila
-   de total `=SUM`), hoja `Fuente`. Si el script marcó **UUID duplicados**, menciónalos primero: son la causa más
+3. **Revisar** la salida: hoja `Facturas` (una fila por XML válido; columnas `Duplicado` y `Cuadra`), hoja `Resumen` (por mes) y
+   hoja `Resumen emisor`, ambas con **Ingresos (I)**, **Egresos (E)**, **Neto (I−E)**, IVA neto y la *cuenta* de Pagos (P), Traslados (T)
+   y Nómina (N), con fila de total `=SUM`; hoja `Fuente`. Los tipos P, T y N nunca se suman a los importes.
+   Los duplicados no entran al Resumen. Si el script marcó **UUID duplicados**, menciónalos primero: son la causa más
    común de totales inflados.
-4. **Contar y cruzar**: número de XML en la carpeta = filas en `Facturas` + XML inválidos + duplicados. Si no cuadra,
+4. **Contar y cruzar**: **XML en la carpeta = filas en `Facturas` + XML inválidos** (los duplicados SÍ son filas, marcadas en `Duplicado`; un CFDI sin UUID
+   sale como `SIN UUID` y no es duplicado). `Fuente` ya lo comprueba. Revisa también las filas con `Cuadra` = `NO CUADRA`
+   (Subtotal − Descuento + IVA + OtrosTraslados − Retenciones ≠ Total, tolerancia 0.01). Si algo no cuadra,
    averigua por qué antes de entregar.
-5. **Resumen en chat**: total de facturas, suma de totales, IVA, los 5 emisores más grandes, XML con problema.
+5. **Resumen en chat**: total de facturas, Ingresos, Egresos y Neto, IVA neto, los 5 emisores más grandes, XML con problema.
    Cada cifra con su origen (hoja y celda).
 
 ## Notas
-- Complemento de pago (REP) y notas de crédito (tipo `E`) se listan con su `TipoDeComprobante`; no los sumes
-  junto con ingresos (`I`) sin decirlo.
+- Notas de crédito (tipo `E`) se restan de los ingresos en la columna Neto; el complemento de pago (`P`), traslado (`T`) y nómina (`N`)
+  solo se cuentan. El Resumen no convierte monedas: `Fuente` lista las que encontró.
+- El Excel queda en `reportes/`, solo local (no se sube a git).
 - Si preguntan "¿esto es deducible?": regla general + "confírmalo con tu contador".

@@ -25,7 +25,7 @@ description: |
    - Diferencias conteo físico vs sistema: tabla con código, sistema, físico, diferencia, valor de la diferencia.
 4. **Reconciliar**: la suma por producto debe dar el total. Si no cuadra, repórtalo primero.
 5. **Entregar**: `reportes/inventario-AAAA-MM-DD.md` (resumen con las 10 diferencias más grandes) y
-   `reportes/inventario-AAAA-MM-DD.xlsx` siguiendo `rules/excel.md` (hojas: Existencias, Sin movimiento,
+   `reportes/inventario-AAAA-MM-DD.xlsx` siguiendo `.claude/rules/excel.md` (hojas: Existencias, Sin movimiento,
    Reorden, Diferencias, Fuente).
 6. **Resumen en chat**: 3 a 6 líneas con los hallazgos y los supuestos usados.
 

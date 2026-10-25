@@ -1,8 +1,8 @@
 ---
 name: guardar
 description: |
-  Guardar en git el trabajo del repositorio (notas, reportes, scripts): pull, scrub, commit de una línea, push.
-  Nunca incluye datos/.
+  Guardar en git el trabajo del repositorio (notas, scripts, reglas): pull, scrub, commit de una línea, push.
+  Nunca incluye datos/ ni reportes/ (son solo locales).
   TRIGGERS: "/guardar", "guarda", "guardar cambios", "sube los cambios", "respalda".
 ---
 
@@ -11,7 +11,8 @@ description: |
 1. **Repositorio correcto**: `git rev-parse --show-toplevel` debe terminar en `jarvis-accounting-warehouse`.
 2. **Traer cambios**: `git pull --rebase --autostash`. Si hay conflicto: detente, muestra los archivos, pregunta.
 3. **Revisar contenido**: `bash scripts/scrub.sh`. Si marca algo, corrige la línea antes de seguir.
-4. **Ver qué cambió**: `git status --short`. Nunca agregues nada de `datos/`, archivos `.env`, ni archivos de más de 5 MB.
+4. **Ver qué cambió**: `git status --short`. Nunca agregues nada de `datos/` ni `reportes/` (solo locales; los Excel llevan RFC y cifras reales), archivos `.env`, ni archivos de más de 5 MB.
+   `notas/` sí se sube: revisa que no tenga nombres, RFC ni cifras de clientes.
    Si cambió `CLAUDE.md`, `.claude/` o `scripts/`, lista esos archivos y pregunta una vez antes de incluirlos.
 5. **Commit**: `git add <archivos>` y `git commit -m "<una línea en español>"`, p. ej. `Conciliación octubre y reporte mensual`.
    Sin firmas, sin "generado por", sin enlaces de sesión. Verifica con `git log -1 --format=%B`.

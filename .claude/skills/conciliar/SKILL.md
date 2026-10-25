@@ -16,8 +16,11 @@ description: |
    Si vienen en xlsx, exporta a CSV con un script corto en `scripts/` (sin tocar el original). Cargos negativos,
    abonos positivos; confirma la convención con José Manuel si el archivo no la deja clara.
 3. **Correr** `python scripts/conciliar.py <banco.csv> <libro.csv> reportes/conciliacion-AAAA-MM.xlsx`
-   (activa `.venv` antes). Empareja por monto exacto y fecha ±3 días. Si quieren otra tolerancia, usa `--dias N`.
-4. **Revisar el resultado**: hojas Conciliadas, Solo banco, Solo libro, Resumen. Explica cada partida pendiente
+   (activa `.venv` antes). Empareja por monto exacto y fecha ±3 días. Primero empareja las parejas con la misma fecha y luego las de menor diferencia de días.
+   Otra tolerancia: `--dias N`. Si el libro registra los cargos como positivos, `--invertir-libro` (el script avisa si con el signo
+   invertido sí habría coincidencias). Acepta CSV de Excel en Windows (codificación detectada, anotada en la hoja `Fuente`), montos
+   como `(350.00)` o `$1,234.50`, y fechas `AAAA-MM-DD`, con hora o `DD/MM/AAAA`; las filas sin monto se omiten con aviso.
+4. **Revisar el resultado**: hojas Conciliadas, Solo banco, Solo libro, Resumen (totales con `=SUM`) y Fuente. Explica cada partida pendiente
    en lenguaje llano ("el banco cobró $350.00 el 12 de octubre y no está en el libro: ¿comisión?").
 5. **Reconciliar**: saldo inicial + conciliadas + solo banco debe explicar el saldo final del banco; lo mismo del lado del libro.
    Si no cuadra, dilo primero y muestra la diferencia.

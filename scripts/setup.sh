@@ -31,13 +31,15 @@ if [ -n "$PY" ]; then say "  ok      python ($("$PY" -c 'import sys; print(sys.v
 if command -v claude >/dev/null 2>&1 || command -v claude.cmd >/dev/null 2>&1; then
   say "  ok      claude"
 else
-  warn "No encuentro Claude Code. Instálalo desde https://claude.ai/code y vuelve a abrir Git Bash."
+  warn "No encuentro Claude Code (es obligatorio). En PowerShell: irm https://claude.ai/install.ps1 | iex  y luego cierra y vuelve a abrir Git Bash."
 fi
 if [ "$missing" = 1 ]; then
   case "$OS" in
     windows) say "Instala lo que falta desde PowerShell como administrador:"
              say "  winget install Git.Git Python.Python.3.12"
-             say "Después cierra y vuelve a abrir Git Bash. Si 'python3' abre la Microsoft Store, desactiva su alias en:"
+             say "Después cierra y vuelve a abrir Git Bash después de instalar (el PATH solo se actualiza al abrir una ventana nueva)."
+             say "Para revisar el PATH, abre PowerShell y escribe:  where python"
+             say "Si 'python3' abre la Microsoft Store, desactiva su alias en:"
              say "  Configuración > Aplicaciones > Configuración avanzada de aplicaciones > Alias de ejecución de aplicaciones" ;;
     mac)     say "Instala con Homebrew (https://brew.sh):  brew install git python" ;;
     *)       say "Instala con apt:  sudo apt update && sudo apt install git python3 python3-venv" ;;

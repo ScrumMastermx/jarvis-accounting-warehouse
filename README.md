@@ -40,14 +40,14 @@ Guía paso a paso con problemas comunes: [`docs/INSTALACION-WINDOWS.md`](docs/IN
 | `/reporte` | Reporte mensual (ventas, compras, gastos, inventario) |
 | `/excel` | Crear, limpiar o arreglar una hoja de cálculo |
 | `/aprender` | Guardar una corrección o preferencia para que no se repita el error |
-| `/guardar` | Guardar tus notas y reportes en el repositorio (nunca `datos/`) |
+| `/guardar` | Guardar tus notas y scripts en el repositorio (nunca `datos/` ni `reportes/`) |
 
 ## Dónde van tus archivos
 
 ```
 datos/      TUS archivos reales (Excel, CSV, XML). Privados: nunca se suben a internet.
 ejemplos/   Archivos ficticios para probar los comandos.
-reportes/   Lo que Claude genera (Excel y resúmenes).
+reportes/   Lo que Claude genera (Excel y resúmenes). Solo en tu computadora: no se sube a git, como datos/.
 notas/      Aprendizajes, decisiones, pendientes.
 scripts/    Herramientas (Python) que usan los comandos.
 ```

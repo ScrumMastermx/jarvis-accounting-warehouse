@@ -2,6 +2,10 @@
 datos/*
 !datos/README.md
 !datos/.gitkeep
+
+# Reportes generados: llevan RFC, nombres y cifras reales dentro del xlsx (binario, el scrub no lo ve). Solo local.
+reportes/*
+!reportes/.gitkeep
 .env
 *.env
 __pycache__/
