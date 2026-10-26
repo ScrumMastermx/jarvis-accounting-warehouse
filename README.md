@@ -16,18 +16,26 @@ que puedes revisar.
    ```
    winget install Git.Git Python.Python.3.12
    ```
-   Cierra PowerShell al terminar.
-2. **Claude Code.** Instálalo desde https://claude.ai/code e inicia sesión con tu cuenta.
-3. **Clonar este repositorio.** Abre **Git Bash** (viene con Git) y escribe:
+   Cierra la ventana al terminar.
+2. **Claude Code.** En un PowerShell normal (no administrador):
    ```
-   mkdir -p ~/trabajo && cd ~/trabajo
+   irm https://claude.ai/install.ps1 | iex
+   ```
+   Cierra esa ventana, abre una nueva y confirma con `claude --version`.
+3. **Clonar e instalar.** En el PowerShell nuevo:
+   ```
+   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
+   mkdir ~\trabajo -Force | Out-Null; cd ~\trabajo
    git clone https://github.com/ScrumMastermx/jarvis-accounting-warehouse.git
    cd jarvis-accounting-warehouse
-   bash scripts/setup.sh
+   .\scripts\setup.ps1
    ```
-   `setup.sh` revisa que todo esté instalado, crea el entorno de Python y te dice qué sigue.
-4. **Abrir Claude.** En la misma ventana de Git Bash escribe `claude` y presiona Enter.
+   `setup.ps1` revisa que todo esté instalado, crea el entorno de Python y te dice qué sigue.
+   Para solo revisar sin cambiar nada: `.\scripts\setup.ps1 -Check`.
+4. **Abrir Claude.** `cd ~\trabajo\jarvis-accounting-warehouse` y luego `claude`.
    Prueba con `/facturas ejemplos/cfdi`.
+
+macOS sigue usando `bash scripts/setup.sh`. ¿Prefieres Git Bash en Windows? También funciona: `bash scripts/setup.sh`.
 
 Guía paso a paso con problemas comunes: [`docs/INSTALACION-WINDOWS.md`](docs/INSTALACION-WINDOWS.md).
 

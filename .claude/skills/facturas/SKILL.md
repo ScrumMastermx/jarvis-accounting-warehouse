@@ -14,8 +14,8 @@ description: |
 
 1. **Carpeta.** Si no la indican, lista `datos/` y pregunta cuál carpeta tiene los XML. Pregunta si son facturas
    **recibidas** (gastos/compras) o **emitidas** (ventas): cambia la lectura del reporte, no el script.
-2. **Correr** (con `.venv` activo):
-   `python scripts/cfdi_a_tabla.py <carpeta> reportes/facturas-AAAA-MM-DD.xlsx`
+2. **Correr** (con el intérprete del venv, sin activarlo: `.venv/Scripts/python.exe` en Windows, `.venv/bin/python` en mac/linux):
+   `.venv/Scripts/python.exe scripts/cfdi_a_tabla.py <carpeta> reportes/facturas-AAAA-MM-DD.xlsx`
    El script lee cada `.xml`, ignora los que no son CFDI 4.0 válidos y los reporta al final sin detenerse.
 3. **Revisar** la salida: hoja `Facturas` (una fila por XML válido; columnas `Duplicado` y `Cuadra`), hoja `Resumen` (por mes) y
    hoja `Resumen emisor`, ambas con **Ingresos (I)**, **Egresos (E)**, **Neto (I−E)**, IVA neto y la *cuenta* de Pagos (P), Traslados (T)

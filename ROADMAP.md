@@ -3,7 +3,7 @@
 ## Fase 0 — Instalación y primera prueba
 **Meta:** José Manuel corre Claude en su computadora y genera su primer Excel desde este repositorio.
 **Se cumple cuando:**
-- `bash scripts/setup.sh` termina con "Listo" en su Windows.
+- `.\scripts\setup.ps1` termina con "Listo" en su Windows.
 - `/facturas ejemplos/cfdi` genera `reportes/facturas-*.xlsx` con 2 facturas.
 - `/guardar` sube un commit suyo al repositorio.
 - Preescolar: primera planeación generada con el PDA real del programa analítico.

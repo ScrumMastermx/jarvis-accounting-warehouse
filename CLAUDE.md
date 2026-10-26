@@ -19,7 +19,7 @@ ejemplos/   archivos ficticios para probar. Nombres y RFC inventados (XAXX010101
 reportes/   lo que generas: Excel y resúmenes en Markdown, con fecha en el nombre. SOLO LOCAL, ignorado por git como datos/.
 notas/      aprendizajes (notas/aprendizajes.md), decisiones, pendientes. Se sube a git: sin datos de clientes.
 programas/   preescolar: planeaciones, programa analítico, plantillas (se suben a git, sin nombres de niños) y `alumnos/` (privada, ignorada por git).
-scripts/    herramientas Python (requieren .venv: `source .venv/bin/activate` o `source .venv/Scripts/activate` en Windows).
+scripts/    herramientas Python (requieren .venv; no se activa, se llama al intérprete del venv directo: `.venv/Scripts/python.exe` en Windows, `.venv/bin/python` en mac/linux).
 ```
 
 ## Reglas duras
@@ -48,8 +48,14 @@ Si `notas/aprendizajes.md` tiene entradas, léelas antes de trabajar con datos.
 
 ## Antes de leer datos
 
-Si vas a usar un script de `scripts/`, activa el entorno virtual primero. Si `.venv` no existe:
-`bash scripts/setup.sh`.
+Los scripts de `scripts/` se corren con el intérprete del venv, sin activarlo: `.venv/Scripts/python.exe scripts/x.py`
+en Windows (`.venv/bin/python scripts/x.py` en mac/linux). Si `.venv` no existe, pídele a José Manuel que corra `.\scripts\setup.ps1`.
+
+## Windows: PowerShell y Git Bash
+
+José Manuel usa PowerShell, pero la herramienta Bash de Claude Code en Windows corre por Git Bash. Dentro de Claude usa:
+`bash scripts/scrub.sh`, `.venv/Scripts/python.exe scripts/x.py` (ruta directa, sin activar) y diagonales `/`.
+Cuando le des un comando para que lo escriba él, dáselo en forma PowerShell: `.\scripts\setup.ps1`, `explorer reportes`.
 
 ## Formato de respuesta
 

@@ -15,8 +15,8 @@ description: |
 2. **Normalizar a CSV** con columnas `fecha,descripcion,monto` (banco) y `fecha,referencia,monto` (libro).
    Si vienen en xlsx, exporta a CSV con un script corto en `scripts/` (sin tocar el original). Cargos negativos,
    abonos positivos; confirma la convención con José Manuel si el archivo no la deja clara.
-3. **Correr** `python scripts/conciliar.py <banco.csv> <libro.csv> reportes/conciliacion-AAAA-MM.xlsx`
-   (activa `.venv` antes). Empareja por monto exacto y fecha ±3 días. Primero empareja las parejas con la misma fecha y luego las de menor diferencia de días.
+3. **Correr** `.venv/Scripts/python.exe scripts/conciliar.py <banco.csv> <libro.csv> reportes/conciliacion-AAAA-MM.xlsx`
+   (en mac/linux: `.venv/bin/python`; no se activa el venv). Empareja por monto exacto y fecha ±3 días. Primero empareja las parejas con la misma fecha y luego las de menor diferencia de días.
    Otra tolerancia: `--dias N`. Si el libro registra los cargos como positivos, `--invertir-libro` (el script avisa si con el signo
    invertido sí habría coincidencias). Acepta CSV de Excel en Windows (codificación detectada, anotada en la hoja `Fuente`), montos
    como `(350.00)` o `$1,234.50`, y fechas `AAAA-MM-DD`, con hora o `DD/MM/AAAA`; las filas sin monto se omiten con aviso.

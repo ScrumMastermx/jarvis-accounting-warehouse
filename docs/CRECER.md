@@ -19,7 +19,7 @@ Si una regla aplica a un solo comando, va en el SKILL.md de ese comando, no en `
 ## Agregar un script
 
 Python 3 + `openpyxl` (ya instalado en `.venv`). Si hace falta otra librería, agrégala a `requirements.txt`
-con versión fija y vuelve a correr `bash scripts/setup.sh`. Agrega una línea de prueba a
+con versión fija y vuelve a correr `.\scripts\setup.ps1` (o `bash scripts/setup.sh`). Agrega una línea de prueba a
 `.github/workflows/scrub.yml` para que corra en CI con un archivo de `ejemplos/`.
 
 ## Ideas candidatas (por descubrir con José Manuel)
