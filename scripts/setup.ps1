@@ -55,13 +55,16 @@ if ($falta) {
 }
 
 Say "== 2/4 Entorno de Python (.venv)"
-$venvPy = Join-Path $Root '.venv\Scripts\python.exe'
+# Windows: .venv\Scripts\python.exe. macOS/Linux (pwsh): .venv/bin/python.
+function Get-VenvPython { $w = Join-Path $Root '.venv\Scripts\python.exe'; $u = Join-Path $Root '.venv/bin/python'; if (Test-Path $w) { return $w } elseif (Test-Path $u) { return $u } else { return $w } }
+$venvPy = Get-VenvPython
 if ($Check) {
     if (Test-Path $venvPy) { Say "  ok      .venv existe" } else { Say "  FALTA   .venv (corre: .\scripts\setup.ps1)" }
 } else {
     if (-not (Test-Path $venvPy)) {
         & $py.Exe @($py.Args) -m venv (Join-Path $Root '.venv')
         if ($LASTEXITCODE -ne 0) { Die "No se pudo crear el .venv." }
+        $venvPy = Get-VenvPython
     }
     & $venvPy -m pip install -q --disable-pip-version-check -r (Join-Path $Root 'requirements.txt')
     if ($LASTEXITCODE -ne 0) { Die "pip no pudo instalar los requisitos. Hay internet?" }
