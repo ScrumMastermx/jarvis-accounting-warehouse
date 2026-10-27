@@ -38,6 +38,7 @@ que puedes revisar.
 macOS sigue usando `bash scripts/setup.sh`. ¿Prefieres Git Bash en Windows? También funciona: `bash scripts/setup.sh`.
 
 Guía paso a paso con problemas comunes: [`docs/INSTALACION-WINDOWS.md`](docs/INSTALACION-WINDOWS.md).
+La barra de estado de Claude muestra solo el nombre del espacio de trabajo (`.claude/settings.json` → `statusLine`); nada que instalar.
 
 ## Comandos
 

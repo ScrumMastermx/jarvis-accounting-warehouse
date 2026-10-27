@@ -11,5 +11,9 @@
       "Read(**/.env)",
       "Edit(**/.env)"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "echo 'Jarvis Contabilidad y Almacen'"
   }
 }

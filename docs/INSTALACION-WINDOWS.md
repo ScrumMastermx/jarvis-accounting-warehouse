@@ -66,6 +66,19 @@ Debe generar un Excel en `reportes/` con 2 facturas de ejemplo.
 Copia tus Excel, CSV y XML a la carpeta `datos/` (por ejemplo `datos/facturas/2026-10/`).
 Nunca se suben a internet. Para abrir la carpeta en el Explorador: `explorer datos`.
 
+## 6. Barra de estado
+
+La barra de abajo en Claude muestra solo el nombre del espacio de trabajo:
+
+```
+Jarvis Contabilidad y Almacen
+```
+
+Viene de `statusLine` en `.claude/settings.json`, así que funciona desde que abres Claude en esta carpeta. No hay nada que instalar.
+Para cambiar el texto, edita esa línea. Si algún día quieres ver contexto y costo, `/statusline` dentro de Claude la reemplaza.
+Dos efectos: la primera vez Claude te pide confiar en la carpeta, y con barra personalizada Claude oculta la mayoría de las
+pistas del pie como `? for shortcuts` (los atajos siguen funcionando).
+
 ## Problemas comunes
 
 - **"la ejecución de scripts está deshabilitada en este sistema".** Corre
